@@ -13,5 +13,6 @@ namespace HomePTServer.Models
         public string text { get; set; }
         public int protocolID { get; set; }
         public int exerciseID { get; set; }
+        public int senderID { get; set; }
     }
 }
