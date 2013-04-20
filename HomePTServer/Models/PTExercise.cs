@@ -14,7 +14,9 @@ namespace HomePTServer.Models
         public bool hasTimer { get; set; }
         public string imageURL { get; set; }
         public string videoURL { get; set; }
-        public int days { get; set; }
+        public string days { get; set; }
+        public int startTime { get; set; }
+        public int endTime { get; set; }
         public int repetitionQuantity { get; set; }
         public int setQuantity { get; set; }
         public string specialInstructions { get; set; }

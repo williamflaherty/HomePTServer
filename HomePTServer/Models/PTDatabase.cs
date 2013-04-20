@@ -17,7 +17,19 @@ namespace HomePTServer.Models
             return patient;
         }
 
-        public static PTMessage AddMessage(PTMessage message) {
+        public static List<PTProtocol> GetProtocolsForPatient(int patientID) {
+            return null;
+        }
+
+        public static List<PTMessage> GetMessagesForPatient(int patientID, int afterTime) {
+            return null;
+        }
+
+        public static string PathForImageNamed(string fileName) {
+            return "/images/directory/" + fileName;
+        }
+
+        public static PTMessage AddMessage(PTMessage message, byte[] imageData) {
             // add the message to the db, set message.ID, and return the message
             return message;
         }

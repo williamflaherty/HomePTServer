@@ -14,5 +14,7 @@ namespace HomePTServer.Models
         public int protocolID { get; set; }
         public int exerciseID { get; set; }
         public int senderID { get; set; }
+        public string imageName { get; set; }
+        public int timestamp { get; set; }
     }
 }
