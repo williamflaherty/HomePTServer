@@ -5,10 +5,11 @@ using System.Web;
 
 namespace HomePTServer.Models
 {
-    public class PTProtocol
+    //TODO: this is a terrible way to have done this.
+    public class PTProtocolTemplate
     {
         public int ID { get; set; }
         public List<PTExercise> exercises { get; set; }
-        public PTDoctor doctor { get; set; }
+        public bool isAssigned { get; set; }
     }
 }

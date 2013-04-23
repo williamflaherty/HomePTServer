@@ -5,16 +5,19 @@ using System.Web;
 
 namespace HomePTServer.Models
 {
-    public class PTLocalPatient
+    public class PTPatient
     {
         public int ID { get; set; }
+        public bool isActive { get; set; }
         public string firstName { get; set; }
+        public string middleName { get; set; }
         public string lastName { get; set; }
+        public string birthday { get; set; }
         public string email { get; set; }
-        public string password { get; set; }
-        public string pushtoken { get; set; }
-
-        public PTLocalPatient()
+        public int recentMessageCount { get; set; }
+        public List<PTProtocol> protocols { get; set; }
+        
+        public PTPatient()
         {
         }
     }

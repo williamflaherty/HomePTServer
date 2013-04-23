@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 19.75, 20.375" name="PTLinkDatabase">
+  <DataContextMoniker Name="/PTLinkDatabaseDataContext" />
+  <nestedChildShapes>
+    <classShape Id="dfa30448-af67-4fff-adc5-74fbc3c1293d" absoluteBounds="6.5, 3.375, 2, 1.193992513020834">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Category" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3852cd5-e41d-46e7-82b1-d15c7dafd7c8" absoluteBounds="6.515, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4cac000b-20d6-4e13-b936-8518110e0e24" absoluteBounds="3.5, 7.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f064bd09-d675-4f7d-8216-911abb62ce55" absoluteBounds="3.515, 7.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="04f657ac-0de9-45c9-a1bf-8d2ae8d0070a" absoluteBounds="11.75, 18.75, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/ContentType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e24e449-a4fa-495b-b30f-3034666c0138" absoluteBounds="11.765, 19.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9d374857-7cb4-470f-8b58-d9be59debbd8" absoluteBounds="3.5, 10.25, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Division" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b155b24b-c90c-458a-b9ac-279079f2341a" absoluteBounds="3.515, 10.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4d6afbc9-c0a9-4496-9594-ff736dc2ef59" absoluteBounds="11.75, 13.25, 2, 3.6939111328124987">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Exercise" />
+      <nestedChildShapes>
+        <elementListCompartment Id="616c0498-4287-4a29-8c53-33a9e01d7c5d" absoluteBounds="11.765, 13.71, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="da908cd4-12ed-4373-be4d-7069985d2fcc" absoluteBounds="17.5, 14.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/ExerciseProgressXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a5152af-51c7-4367-970c-11c5eb4c2b42" absoluteBounds="17.515, 14.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fb907c0e-15b1-4d59-9fc0-65ce1876a291" absoluteBounds="9.25, 2.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/ExerciseTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18a40b8b-ade8-4485-8c0b-5d9d9f5b75a9" absoluteBounds="9.265, 3.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c0bc10b1-9dd7-42be-8bf7-a50c80bedc34" absoluteBounds="12, 8.125, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/ExerciseTemplateDoctorXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="177da744-c470-4c20-ab1b-93414f71b3cf" absoluteBounds="12.015, 8.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0192a586-ce3f-42da-a3ce-5424ee83433d" absoluteBounds="0.75, 10.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Institution" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e11e0c4-4115-4110-96aa-169d0202fed9" absoluteBounds="0.765, 10.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0fa7f17c-19ef-44c6-8ba4-4e274eac8a79" absoluteBounds="12, 4.25, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Instruction" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13062602-4f71-407a-8ab9-fe3c57959f14" absoluteBounds="12.015, 4.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6e255f40-0caf-49aa-9b17-d877c4932986" absoluteBounds="14.75, 4.25, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/InstructionImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="52bbe8b4-4bbc-4db9-88f0-a49d9ef550ac" absoluteBounds="14.765, 4.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="867f27c1-0973-4fdf-8ffb-4c82f5c34ad0" absoluteBounds="14.5, 15.25, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b7b1fa7-5f05-4ae7-8b00-5cc498bcda56" absoluteBounds="14.515, 15.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5cb05d15-611d-4307-bde1-95d9517fff69" absoluteBounds="14.5, 12.375, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Note" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a95147f9-09a5-4aea-bfef-1c469288a341" absoluteBounds="14.515, 12.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" absoluteBounds="6.25, 9.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Person" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68836e8a-fb34-4679-800d-9fcad9f44e3b" absoluteBounds="6.265, 10.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9b7f1595-1daf-4863-a7e8-972582190589" absoluteBounds="9, 9, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/PersonSetting" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a742b0f9-ecd5-4c50-ac12-494a7eea546f" absoluteBounds="9.015, 9.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="380e0084-3d3c-40ee-9326-72a73dd0b6a5" absoluteBounds="14.75, 18.5, 2, 1.1939925130208309">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Progress" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c8bee8f8-eb66-43c8-8cba-16f3b070159d" absoluteBounds="14.765, 18.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d7bd5c8f-1b0d-4d76-ab37-f2b8d360ee8b" absoluteBounds="9, 11.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Protocol" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b01bbf85-38a7-4c63-abdc-b3b4402e81e1" absoluteBounds="9.015, 11.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd33ed4e-6e2b-41c2-b4b4-c6e5985b2df5" absoluteBounds="11.75, 10.625, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/ProtocolDoctorXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e198c0b1-62a9-448c-9e2a-a6a120ca0d43" absoluteBounds="11.765, 11.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="09ce5aeb-bfe8-4b64-9b05-6822658c37dc" absoluteBounds="6.25, 6.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/ProtocolTemplate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6b53d0ae-cde7-42a8-9f1b-76f3d0c299be" absoluteBounds="6.265, 6.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d120c24d-ecc7-466f-af5f-b4f1552d1319" absoluteBounds="9, 6.125, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/ProtocolTemplateDoctorXref" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c5567f3f-e1fa-41cc-a200-2ebdb4c446b7" absoluteBounds="9.015, 6.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="803b5516-b269-49bf-a5a2-cf9d62b5d762" absoluteBounds="0.75, 7.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/RegistrationStatus" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7dcccbe6-756e-4f20-891f-484380789029" absoluteBounds="0.765, 7.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="eb233e4d-5f31-464d-b274-011a660b6881" absoluteBounds="12, 1.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PTLinkDatabaseDataContext/Tag" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d818cefb-79dc-492c-aabf-721cda12ed2a" absoluteBounds="12.015, 2.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.75 : 14.78125); (17.5 : 14.78125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Exercise/Exercise_ExerciseProgressXref" />
+      <nodes>
+        <classShapeMoniker Id="4d6afbc9-c0a9-4496-9594-ff736dc2ef59" />
+        <classShapeMoniker Id="da908cd4-12ed-4373-be4d-7069985d2fcc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.15625 : 5.03049967447917); (11.15625 : 15.0969555664062); (11.75 : 15.0969555664062)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/ExerciseTemplate/ExerciseTemplate_Exercise" />
+      <nodes>
+        <classShapeMoniker Id="fb907c0e-15b1-4d59-9fc0-65ce1876a291" />
+        <classShapeMoniker Id="4d6afbc9-c0a9-4496-9594-ff736dc2ef59" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.5 : 3.97199625651042); (9.25 : 3.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Category/Category_ExerciseTemplate" />
+      <nodes>
+        <classShapeMoniker Id="dfa30448-af67-4fff-adc5-74fbc3c1293d" />
+        <classShapeMoniker Id="fb907c0e-15b1-4d59-9fc0-65ce1876a291" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.1875025 : 5.03049967447917); (11.1875025 : 8.53125); (12 : 8.53125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/ExerciseTemplate/ExerciseTemplate_ExerciseTemplateDoctorXref" />
+      <nodes>
+        <classShapeMoniker Id="fb907c0e-15b1-4d59-9fc0-65ce1876a291" />
+        <classShapeMoniker Id="c0bc10b1-9dd7-42be-8bf7-a50c80bedc34" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 10.9719962565104); (3.5 : 10.9719962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Institution/Institution_Division" />
+      <nodes>
+        <classShapeMoniker Id="0192a586-ce3f-42da-a3ce-5424ee83433d" />
+        <classShapeMoniker Id="9d374857-7cb4-470f-8b58-d9be59debbd8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 4.64024983723958); (12 : 4.64024983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/ExerciseTemplate/ExerciseTemplate_Instruction" />
+      <nodes>
+        <classShapeMoniker Id="fb907c0e-15b1-4d59-9fc0-65ce1876a291" />
+        <classShapeMoniker Id="0fa7f17c-19ef-44c6-8ba4-4e274eac8a79" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(14 : 5.13544840494792); (14.75 : 5.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Instruction/Instruction_InstructionImage" />
+      <nodes>
+        <classShapeMoniker Id="0fa7f17c-19ef-44c6-8ba4-4e274eac8a79" />
+        <classShapeMoniker Id="6e255f40-0caf-49aa-9b17-d877c4932986" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 19.8502425130208); (14.59375 : 19.8502425130208); (14.59375 : 17.4054996744792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/ContentType/ContentType_Message" />
+      <nodes>
+        <classShapeMoniker Id="04f657ac-0de9-45c9-a1bf-8d2ae8d0070a" />
+        <classShapeMoniker Id="867f27c1-0973-4fdf-8ffb-4c82f5c34ad0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 16.0969555664063); (14.5 : 16.0969555664063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Exercise/Exercise_Message" />
+      <nodes>
+        <classShapeMoniker Id="4d6afbc9-c0a9-4496-9594-ff736dc2ef59" />
+        <classShapeMoniker Id="867f27c1-0973-4fdf-8ffb-4c82f5c34ad0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.75 : 13.6979484049479); (14.5 : 13.6979484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Exercise/Exercise_Note" />
+      <nodes>
+        <classShapeMoniker Id="4d6afbc9-c0a9-4496-9594-ff736dc2ef59" />
+        <classShapeMoniker Id="5cb05d15-611d-4307-bde1-95d9517fff69" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 9.625); (7.25 : 8.7656275); (8.54166666666667 : 8.7656275 : JumpStart); (8.70833333333333 : 8.7656275 : JumpEnd); (8.72916666666667 : 8.7656275 : JumpStart); (8.89583333333333 : 8.7656275 : JumpEnd); (11.0729166666667 : 8.7656275 : JumpStart); (11.2395833333333 : 8.7656275 : JumpEnd); (12 : 8.7656275)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Person/Person_ExerciseTemplateDoctorXref" />
+      <nodes>
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+        <classShapeMoniker Id="c0bc10b1-9dd7-42be-8bf7-a50c80bedc34" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 12.3574039713542); (7.25 : 17.2059554036458); (14.5 : 17.2059554036458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Person/Person_Message" />
+      <nodes>
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+        <classShapeMoniker Id="867f27c1-0973-4fdf-8ffb-4c82f5c34ad0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.7812525 : 12.3574039713542); (7.7812525 : 13.1017976888021); (8.54166666666667 : 13.1017976888021 : JumpStart); (8.70833333333333 : 13.1017976888021 : JumpEnd); (9.91666666666667 : 13.1017976888021 : JumpStart); (10.0833333333333 : 13.1017976888021 : JumpEnd); (10.4479191666667 : 13.1017976888021 : JumpStart); (10.6145858333333 : 13.1017976888021 : JumpEnd); (11.0729166666667 : 13.1017976888021 : JumpStart); (11.2395833333333 : 13.1017976888021 : JumpEnd); (14.5 : 13.1017976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Person/Person_Note" />
+      <nodes>
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+        <classShapeMoniker Id="5cb05d15-611d-4307-bde1-95d9517fff69" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.9431469726562); (5.79166666666667 : 10.9431469726562 : JumpStart); (5.95833333333333 : 10.9431469726562 : JumpEnd); (6.25 : 10.9431469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Division/Division_Person" />
+      <nodes>
+        <classShapeMoniker Id="9d374857-7cb4-470f-8b58-d9be59debbd8" />
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.70359537760417); (5.875 : 9.07859537760417); (5.875 : 11.6815274720052); (6.25 : 11.6815274720052)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/User/User_Person" />
+      <nodes>
+        <classShapeMoniker Id="4cac000b-20d6-4e13-b936-8518110e0e24" />
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 10.1017976888021); (8.54166666666667 : 10.1017976888021 : JumpStart); (8.70833333333333 : 10.1017976888021 : JumpEnd); (9 : 10.1017976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Person/Person_PersonSetting" />
+      <nodes>
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+        <classShapeMoniker Id="9b7f1595-1daf-4863-a7e8-972582190589" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.65625 : 18.5); (16.65625 : 15.0156275); (17.5 : 15.0156275)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Progress/Progress_ExerciseProgressXref" />
+      <nodes>
+        <classShapeMoniker Id="380e0084-3d3c-40ee-9326-72a73dd0b6a5" />
+        <classShapeMoniker Id="da908cd4-12ed-4373-be4d-7069985d2fcc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10 : 12.9535953776042); (10 : 14.1422252832031); (10.4479191666667 : 14.1422252832031 : JumpStart); (10.6145858333333 : 14.1422252832031 : JumpEnd); (11.0729166666667 : 14.1422252832031 : JumpStart); (11.2395833333333 : 14.1422252832031 : JumpEnd); (11.75 : 14.1422252832031)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Protocol/Protocol_Exercise" />
+      <nodes>
+        <classShapeMoniker Id="d7bd5c8f-1b0d-4d76-ab37-f2b8d360ee8b" />
+        <classShapeMoniker Id="4d6afbc9-c0a9-4496-9594-ff736dc2ef59" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.5312525 : 12.9535953776042); (10.5312525 : 17.0749307682292); (14.5 : 17.0749307682292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Protocol/Protocol_Message" />
+      <nodes>
+        <classShapeMoniker Id="d7bd5c8f-1b0d-4d76-ab37-f2b8d360ee8b" />
+        <classShapeMoniker Id="867f27c1-0973-4fdf-8ffb-4c82f5c34ad0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 12.6642976888021); (11.0729166666667 : 12.6642976888021 : JumpStart); (11.2395833333333 : 12.6642976888021 : JumpEnd); (14.5 : 12.6642976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Protocol/Protocol_Note" />
+      <nodes>
+        <classShapeMoniker Id="d7bd5c8f-1b0d-4d76-ab37-f2b8d360ee8b" />
+        <classShapeMoniker Id="5cb05d15-611d-4307-bde1-95d9517fff69" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 11.8662019856771); (8.54166666666667 : 11.8662019856771 : JumpStart); (8.70833333333333 : 11.8662019856771 : JumpEnd); (9 : 11.8662019856771)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Person/Person_Protocol" />
+      <nodes>
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+        <classShapeMoniker Id="d7bd5c8f-1b0d-4d76-ab37-f2b8d360ee8b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 10.96875); (8.54166666666667 : 10.96875 : JumpStart); (8.70833333333333 : 10.96875 : JumpEnd); (11.0729166666667 : 10.96875 : JumpStart); (11.2395833333333 : 10.96875 : JumpEnd); (11.75 : 10.96875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Person/Person_ProtocolDoctorXref" />
+      <nodes>
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+        <classShapeMoniker Id="cd33ed4e-6e2b-41c2-b4b4-c6e5985b2df5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 11.5969962565104); (11.0729166666667 : 11.5969962565104 : JumpStart); (11.2395833333333 : 11.5969962565104 : JumpEnd); (11.75 : 11.5969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Protocol/Protocol_ProtocolDoctorXref" />
+      <nodes>
+        <classShapeMoniker Id="d7bd5c8f-1b0d-4d76-ab37-f2b8d360ee8b" />
+        <classShapeMoniker Id="cd33ed4e-6e2b-41c2-b4b4-c6e5985b2df5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.89453358158053); (8.625 : 8.26953358158053); (8.625 : 16.0516853496094); (10.4479191666667 : 16.0516853496094 : JumpStart); (10.6145858333333 : 16.0516853496094 : JumpEnd); (11.75 : 16.0516853496094)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/ProtocolTemplate/ProtocolTemplate_Exercise" />
+      <nodes>
+        <classShapeMoniker Id="09ce5aeb-bfe8-4b64-9b05-6822658c37dc" />
+        <classShapeMoniker Id="4d6afbc9-c0a9-4496-9594-ff736dc2ef59" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 9.68653746153846); (8.56607443490112 : 9.37046302663734 : JumpStart); (8.68392556509888 : 9.25261189643958 : JumpEnd); (8.8125 : 9.12403746153846); (8.8125 : 7.01044840494792); (9 : 7.01044840494792)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/Person/Person_ProtocolTemplateDoctorXref" />
+      <nodes>
+        <classShapeMoniker Id="8ec53e95-7572-4862-acd4-5a55efc8f6c5" />
+        <classShapeMoniker Id="d120c24d-ecc7-466f-af5f-b4f1552d1319" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 6.50522420247396); (9 : 6.50522420247396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/ProtocolTemplate/ProtocolTemplate_ProtocolTemplateDoctorXref" />
+      <nodes>
+        <classShapeMoniker Id="09ce5aeb-bfe8-4b64-9b05-6822658c37dc" />
+        <classShapeMoniker Id="d120c24d-ecc7-466f-af5f-b4f1552d1319" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.97199625651042); (3.5 : 7.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/RegistrationStatus/RegistrationStatus_User" />
+      <nodes>
+        <classShapeMoniker Id="803b5516-b269-49bf-a5a2-cf9d62b5d762" />
+        <classShapeMoniker Id="4cac000b-20d6-4e13-b936-8518110e0e24" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 3.16429768880208); (12 : 3.16429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PTLinkDatabaseDataContext/ExerciseTemplate/ExerciseTemplate_Tag" />
+      <nodes>
+        <classShapeMoniker Id="fb907c0e-15b1-4d59-9fc0-65ce1876a291" />
+        <classShapeMoniker Id="eb233e4d-5f31-464d-b274-011a660b6881" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

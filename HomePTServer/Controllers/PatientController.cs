@@ -18,12 +18,19 @@ namespace HomePTServer.Controllers
             return View();
         }
 
+        public String GetPatient(string email, string password)
+        {
+            PTLocalPatient p = PTDatabase.GetPatient(email, password);
+            if (p == null) return "Not found";
+            return new JavaScriptSerializer().Serialize(p);
+        }
+
         public class Auth
         {
             public string email { get; set; }
             public string password { get; set; }
         }
-
+        
         [HttpPost]
         public string Login(PTLocalPatient patient) {
             Dictionary<string, object> results = new Dictionary<string, object>();
@@ -61,19 +68,26 @@ namespace HomePTServer.Controllers
             if (p == null) {
                 results["error"] = "Invalid username or password.";
             } else {
+                List<PTProtocol> protocols = PTDatabase.GetProtocolsForPatient(p.ID);
                 results["patient"] = p;
-                results["protocols"] = PTDatabase.GetProtocolsForPatient(p.ID);
-                results["messages"] = PTDatabase.GetMessagesForPatient(p.ID, args.lastTime);
-                Dictionary<string, string> images = new Dictionary<string, string>();
-                foreach (PTMessage message in (List<PTMessage>)results["messages"]) {
-                    if (!string.IsNullOrEmpty(message.imageName)) {
-                        byte[] data = System.IO.File.ReadAllBytes(PTDatabase.PathForImageNamed(message.imageName));
-                        if (data != null) {
-                            images.Add(message.imageName, Convert.ToBase64String(data));
+                results["protocols"] = protocols;
+                if (protocols.Count() > 0)
+                {
+                    results["messages"] = PTDatabase.GetMessages(protocols.First().ID, args.lastTime);
+                    Dictionary<string, string> images = new Dictionary<string, string>();
+                    foreach (PTMessage message in (List<PTMessage>)results["messages"])
+                    {
+                        if (!string.IsNullOrEmpty(message.imageName))
+                        {
+                            byte[] data = System.IO.File.ReadAllBytes(PTDatabase.PathForImageNamed(message.imageName));
+                            if (data != null)
+                            {
+                                images.Add(message.imageName, Convert.ToBase64String(data));
+                            }
                         }
                     }
+                    results["images"] = images;
                 }
-                results["images"] = images;
             }
             return new JavaScriptSerializer().Serialize(results);
         }
