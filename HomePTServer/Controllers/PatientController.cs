@@ -10,9 +10,13 @@ namespace HomePTServer.Controllers
 {
     public class PatientController : Controller
     {
+        static JavaScriptSerializer s = new JavaScriptSerializer();
         //
         // GET: /Patient/
 
+        public PatientController() {
+            s.MaxJsonLength = Int32.MaxValue;
+        }
         public ActionResult Index()
         {
             return View();
@@ -22,7 +26,7 @@ namespace HomePTServer.Controllers
         {
             PTLocalPatient p = PTDatabase.GetPatient(email, password);
             if (p == null) return "Not found";
-            return new JavaScriptSerializer().Serialize(p);
+            return s.Serialize(p);
         }
 
         public class Auth
@@ -33,12 +37,16 @@ namespace HomePTServer.Controllers
         
         [HttpPost]
         public string Login(PTLocalPatient patient) {
-            SyncArgs args = new SyncArgs();
-            args.authentication = new Auth();
-            args.authentication.email = patient.email;
-            args.authentication.password = patient.password;
-            args.lastTime = 0;
-            return Sync(args);
+            try {
+                SyncArgs args = new SyncArgs();
+                args.authentication = new Auth();
+                args.authentication.email = patient.email;
+                args.authentication.password = patient.password;
+                args.lastTime = 0;
+                return Sync(args);
+            } catch (Exception e) {
+                return e.Message;
+            }
         }
 
         [HttpPost]
@@ -54,7 +62,7 @@ namespace HomePTServer.Controllers
             } catch (Exception e) {
                 results["error"] = e.Message;
             }
-            return new JavaScriptSerializer().Serialize(results);
+            return s.Serialize(results);
         }
 
         public class SyncArgs
@@ -93,7 +101,7 @@ namespace HomePTServer.Controllers
             } catch (Exception e) {
                 results["error"] = e.Message;
             }
-            return new JavaScriptSerializer().Serialize(results);
+            return s.Serialize(results);
         }
 
         public class AddMessageArgs
@@ -150,7 +158,7 @@ namespace HomePTServer.Controllers
             } catch (Exception e) {
                 results["error"] = e.Message;
             }
-            return new JavaScriptSerializer().Serialize(results);
+            return s.Serialize(results);
         }
 
         public class AddProgressArgs
@@ -172,7 +180,7 @@ namespace HomePTServer.Controllers
             } catch (Exception e) {
                 results["error"] = e.Message;
             }
-            return new JavaScriptSerializer().Serialize(results);
+            return s.Serialize(results);
         }
     }
 }

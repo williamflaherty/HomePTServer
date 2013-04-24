@@ -149,6 +149,7 @@ namespace HomePTServer.Models
                                 exercise.days = dbExercise.Days;
                                 exercise.specialInstructions = dbExercise.SpecialInstruction;
                                 exercise.value = dbExercise.Value;
+                                exercise.name = dbExercise.ExerciseTemplate.Name;
 
                                 if (dbExercise.EndDate.HasValue)
                                 {

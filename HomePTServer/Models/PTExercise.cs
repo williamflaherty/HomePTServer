@@ -19,6 +19,7 @@ namespace HomePTServer.Models
         public int repetitionQuantity { get; set; }
         public int setQuantity { get; set; }
         public string specialInstructions { get; set; }
+        public string name { get; set; }
         public string instructions { get; set; }
         public string value { get; set; }
         public string category { get; set; }
