@@ -115,6 +115,8 @@ namespace HomePTServer.Models
                         foreach (Protocol dbProtocol in dbProtocols)
                         {
                             protocol = new PTProtocol();
+
+                            protocol.name = dbProtocol.Exercises.FirstOrDefault().ProtocolTemplate.Name;
                             protocol.ID = dbProtocol.Id;
                             protocol.exercises = new List<PTExercise>();
                             protocol.doctor = new PTDoctor();
@@ -197,7 +199,7 @@ namespace HomePTServer.Models
                                 //TODO: ignoring image and stuff for now
                                 //tmpExercise.imageURL;
                                 //tmpExercise.videoURL;
-
+                                
                                 exercise.progress = new List<PTExerciseProgress>();
                                 foreach (ExerciseProgressXref dbProgress in dbExercise.ExerciseProgressXrefs)
                                 {
@@ -211,6 +213,8 @@ namespace HomePTServer.Models
                                 foreach (Instruction instruction in dbExercise.ExerciseTemplate.Instructions)
                                 {
                                     exercise.instructions += instruction.Text;
+                                    exercise.imageURL = instruction.InstructionImages.First().ImagePath;
+                                    exercise.videoURL = instruction.VideoPath;
                                 }
 
                                 protocol.exercises.Add(exercise);
@@ -503,6 +507,8 @@ namespace HomePTServer.Models
                             tmpProtocol = new PTProtocol();
                             tmpProtocol.ID = protocol.Id;
                             tmpProtocol.exercises = new List<PTExercise>();
+                            tmpProtocol.name = protocol.Exercises.FirstOrDefault().ProtocolTemplate.Name;
+                            tmpProtocol.imageURL = protocol.ImagePath;
 
                             //TODO: assuming exerciseCategory refers to CategoryId
                             foreach (Exercise exercise in protocol.Exercises)
@@ -514,6 +520,7 @@ namespace HomePTServer.Models
                                 tmpExercise.days = exercise.Days;
                                 tmpExercise.specialInstructions = exercise.SpecialInstruction;
                                 tmpExercise.value = exercise.Value;
+                                tmpExercise.name = exercise.ExerciseTemplate.Name;
 
                                 if (exercise.EndDate.HasValue)
                                 {
@@ -619,6 +626,9 @@ namespace HomePTServer.Models
                         {
                             tempProtocolTemplate = new PTProtocolTemplate();
                             tempProtocolTemplate.ID = protocolTemplate.Id;
+                            tempProtocolTemplate.name = protocolTemplate.Name;
+                            tempProtocolTemplate.imageURL = protocolTemplate.IconPath;
+
                             protocolTemplateExercise = (from eTXref in db.ExerciseTemplateDoctorXrefs
                                                         join e in db.Exercises on eTXref.ExerciseTemplateId equals e.ExerciseTemplateId
                                                         where e.Protocol.PatientId == patientID
@@ -645,6 +655,7 @@ namespace HomePTServer.Models
                                     tmpExercise.days = exercise.Days;
                                     tmpExercise.specialInstructions = exercise.SpecialInstruction;
                                     tmpExercise.value = exercise.Value;
+                                    tmpExercise.name = exercise.ExerciseTemplate.Name;
 
                                     if (exercise.EndDate.HasValue)
                                     {
