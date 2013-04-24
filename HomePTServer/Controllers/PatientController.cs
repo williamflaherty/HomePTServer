@@ -107,19 +107,45 @@ namespace HomePTServer.Controllers
         public string AddMessage(AddMessageArgs args) {
             Dictionary<string, object> results = new Dictionary<string, object>();
             byte[] imageData = null;
+            string imageName = args.message.imageName;
             if (!String.IsNullOrEmpty(args.imageData)) {
                 imageData = Convert.FromBase64String(args.imageData);
             }
             try {
-                PTMessage message = PTDatabase.AddMessage(args.message, imageData);
-                if (message != null && imageData != null) {
-                    string path = PTDatabase.PathForImageNamed(args.message.imageName, false);
+                List<PTMessage> messages = new List<PTMessage>();
+
+                // Add text
+                if (!String.IsNullOrEmpty(args.message.text)) {
+                    args.message.type = "Text";
+                    PTMessage message = PTDatabase.AddMessage(args.message, null);
+                    message.imageName = null;
+                    if (message != null)
+                        messages.Add(message);
+                }
+
+                // Add image
+                if (imageData != null) {
+                    PTMessage imageMessage = new PTMessage();
+                    imageMessage.senderID = args.message.senderID;
+                    imageMessage.protocolID = args.message.protocolID;
+                    imageMessage.timestamp = args.message.timestamp;
+                    imageMessage.imageName = imageName;
+                    imageMessage.exerciseID = args.message.exerciseID;
+                    imageMessage.type = "Image";
+                    imageMessage.text = null;
+
+                    imageMessage = PTDatabase.AddMessage(imageMessage, imageData);
+                    if (imageMessage != null)
+                        messages.Add(imageMessage);
+                }
+                if (imageData != null) {
+                    string path = PTDatabase.PathForImageNamed(imageName, false);
                     System.IO.File.WriteAllBytes(path, imageData);
                 }
-                if (message == null) {
+                if (messages.Count == 0) {
                     results["error"] = "Error adding message to the database.";
                 } else {
-                    results["message"] = message;
+                    results["messages"] = messages;
                 }
             } catch (Exception e) {
                 results["error"] = e.Message;
