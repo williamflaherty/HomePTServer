@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PTDatabase" Class="PTLinkDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=173.248.135.23,1533;Initial Catalog=PTDatabase;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PTDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Category" Member="Categories">
+    <Type Name="Category">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="Category_ExerciseTemplate" Member="ExerciseTemplates" ThisKey="Id" OtherKey="CategoryId" Type="ExerciseTemplate" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RegistrationStatusId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Person" Member="Persons" ThisKey="Id" OtherKey="UserId" Type="Person" />
+      <Association Name="RegistrationStatus_User" Member="RegistrationStatus" ThisKey="RegistrationStatusId" OtherKey="Id" Type="RegistrationStatus" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ContentType" Member="ContentTypes">
+    <Type Name="ContentType">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="ContentType_Message" Member="Messages" ThisKey="Id" OtherKey="ContentTypeId" Type="Message" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Division" Member="Divisions">
+    <Type Name="Division">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InstitutionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Division_Person" Member="Persons" ThisKey="Id" OtherKey="DivisionId" Type="Person" />
+      <Association Name="Institution_Division" Member="Institution" ThisKey="InstitutionId" OtherKey="Id" Type="Institution" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Exercise" Member="Exercises">
+    <Type Name="Exercise">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExerciseTemplateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProtocolTemplateId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProtocolId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasTimer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Position" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TimerDuration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Days" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RepetitionQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SpecialInstruction" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="RestDuration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SetQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="Exercise_ExerciseProgressXref" Member="ExerciseProgressXrefs" ThisKey="Id" OtherKey="ExerciseId" Type="ExerciseProgressXref" />
+      <Association Name="Exercise_Message" Member="Messages" ThisKey="Id" OtherKey="ExerciseId" Type="Message" />
+      <Association Name="Exercise_Note" Member="Notes" ThisKey="Id" OtherKey="ExerciseId" Type="Note" />
+      <Association Name="ExerciseTemplate_Exercise" Member="ExerciseTemplate" ThisKey="ExerciseTemplateId" OtherKey="Id" Type="ExerciseTemplate" IsForeignKey="true" />
+      <Association Name="Protocol_Exercise" Member="Protocol" ThisKey="ProtocolId" OtherKey="Id" Type="Protocol" IsForeignKey="true" />
+      <Association Name="ProtocolTemplate_Exercise" Member="ProtocolTemplate" ThisKey="ProtocolTemplateId" OtherKey="Id" Type="ProtocolTemplate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExerciseProgressXref" Member="ExerciseProgressXrefs">
+    <Type Name="ExerciseProgressXref">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProgressId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExerciseId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Timestamp" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="Exercise_ExerciseProgressXref" Member="Exercise" ThisKey="ExerciseId" OtherKey="Id" Type="Exercise" IsForeignKey="true" />
+      <Association Name="Progress_ExerciseProgressXref" Member="Progress" ThisKey="ProgressId" OtherKey="Id" Type="Progress" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExerciseTemplate" Member="ExerciseTemplates">
+    <Type Name="ExerciseTemplate">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HasTimer" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IconPath" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="TimerDuration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="ExerciseTemplate_Exercise" Member="Exercises" ThisKey="Id" OtherKey="ExerciseTemplateId" Type="Exercise" />
+      <Association Name="ExerciseTemplate_ExerciseTemplateDoctorXref" Member="ExerciseTemplateDoctorXrefs" ThisKey="Id" OtherKey="ExerciseTemplateId" Type="ExerciseTemplateDoctorXref" />
+      <Association Name="ExerciseTemplate_Instruction" Member="Instructions" ThisKey="Id" OtherKey="ExerciseTemplateId" Type="Instruction" />
+      <Association Name="ExerciseTemplate_Tag" Member="Tags" ThisKey="Id" OtherKey="ExerciseTemplateId" Type="Tag" />
+      <Association Name="Category_ExerciseTemplate" Member="Category" ThisKey="CategoryId" OtherKey="Id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExerciseTemplateDoctorXref" Member="ExerciseTemplateDoctorXrefs">
+    <Type Name="ExerciseTemplateDoctorXref">
+      <Column Name="ExerciseTemplateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DoctorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Counter" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="ExerciseTemplate_ExerciseTemplateDoctorXref" Member="ExerciseTemplate" ThisKey="ExerciseTemplateId" OtherKey="Id" Type="ExerciseTemplate" IsForeignKey="true" />
+      <Association Name="Person_ExerciseTemplateDoctorXref" Member="Person" ThisKey="DoctorId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Institution" Member="Institutions">
+    <Type Name="Institution">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Institution_Division" Member="Divisions" ThisKey="Id" OtherKey="InstitutionId" Type="Division" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Instruction" Member="Instructions">
+    <Type Name="Instruction">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExerciseTemplateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VideoPath" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Instruction_InstructionImage" Member="InstructionImages" ThisKey="Id" OtherKey="InstructionId" Type="InstructionImage" />
+      <Association Name="ExerciseTemplate_Instruction" Member="ExerciseTemplate" ThisKey="ExerciseTemplateId" OtherKey="Id" Type="ExerciseTemplate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InstructionImage" Member="InstructionImages">
+    <Type Name="InstructionImage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ImagePath" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="ThumbnailPath" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="InstructionId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Instruction_InstructionImage" Member="Instruction" ThisKey="InstructionId" OtherKey="Id" Type="Instruction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Message" Member="Messages">
+    <Type Name="Message">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProtocolId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExerciseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ContentTypeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Timestamp" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Association Name="ContentType_Message" Member="ContentType" ThisKey="ContentTypeId" OtherKey="Id" Type="ContentType" IsForeignKey="true" />
+      <Association Name="Exercise_Message" Member="Exercise" ThisKey="ExerciseId" OtherKey="Id" Type="Exercise" IsForeignKey="true" />
+      <Association Name="Person_Message" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="Protocol_Message" Member="Protocol" ThisKey="ProtocolId" OtherKey="Id" Type="Protocol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Note" Member="Notes">
+    <Type Name="Note">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProtocolId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExerciseId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Exercise_Note" Member="Exercise" ThisKey="ExerciseId" OtherKey="Id" Type="Exercise" IsForeignKey="true" />
+      <Association Name="Person_Note" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="Protocol_Note" Member="Protocol" ThisKey="ProtocolId" OtherKey="Id" Type="Protocol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Person" Member="Persons">
+    <Type Name="Person">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DivisionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Permissions" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Birthday" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PushToken" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Person_ExerciseTemplateDoctorXref" Member="ExerciseTemplateDoctorXrefs" ThisKey="Id" OtherKey="DoctorId" Type="ExerciseTemplateDoctorXref" />
+      <Association Name="Person_Message" Member="Messages" ThisKey="Id" OtherKey="PersonId" Type="Message" />
+      <Association Name="Person_Note" Member="Notes" ThisKey="Id" OtherKey="PersonId" Type="Note" />
+      <Association Name="Person_PersonSetting" Member="PersonSettings" ThisKey="Id" OtherKey="PersonId" Type="PersonSetting" />
+      <Association Name="Person_Protocol" Member="Protocols" ThisKey="Id" OtherKey="PatientId" Type="Protocol" />
+      <Association Name="Person_ProtocolDoctorXref" Member="ProtocolDoctorXrefs" ThisKey="Id" OtherKey="DoctorId" Type="ProtocolDoctorXref" />
+      <Association Name="Person_ProtocolTemplateDoctorXref" Member="ProtocolTemplateDoctorXrefs" ThisKey="Id" OtherKey="DoctorId" Type="ProtocolTemplateDoctorXref" />
+      <Association Name="Division_Person" Member="Division" ThisKey="DivisionId" OtherKey="Id" Type="Division" IsForeignKey="true" />
+      <Association Name="User_Person" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PersonSetting" Member="PersonSettings">
+    <Type Name="PersonSetting">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="PersonId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Person_PersonSetting" Member="Person" ThisKey="PersonId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Progress" Member="Progresses">
+    <Type Name="Progress">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Progress_ExerciseProgressXref" Member="ExerciseProgressXrefs" ThisKey="Id" OtherKey="ProgressId" Type="ExerciseProgressXref" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Protocol" Member="Protocols">
+    <Type Name="Protocol">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PatientId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="ImagePath" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Association Name="Protocol_Exercise" Member="Exercises" ThisKey="Id" OtherKey="ProtocolId" Type="Exercise" />
+      <Association Name="Protocol_Message" Member="Messages" ThisKey="Id" OtherKey="ProtocolId" Type="Message" />
+      <Association Name="Protocol_Note" Member="Notes" ThisKey="Id" OtherKey="ProtocolId" Type="Note" />
+      <Association Name="Protocol_ProtocolDoctorXref" Member="ProtocolDoctorXrefs" ThisKey="Id" OtherKey="ProtocolId" Type="ProtocolDoctorXref" />
+      <Association Name="Person_Protocol" Member="Person" ThisKey="PatientId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolDoctorXref" Member="ProtocolDoctorXrefs">
+    <Type Name="ProtocolDoctorXref">
+      <Column Name="ProtocolId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DoctorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Person_ProtocolDoctorXref" Member="Person" ThisKey="DoctorId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="Protocol_ProtocolDoctorXref" Member="Protocol" ThisKey="ProtocolId" OtherKey="Id" Type="Protocol" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolTemplate" Member="ProtocolTemplates">
+    <Type Name="ProtocolTemplate">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IconPath" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDefault" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ProtocolTemplate_Exercise" Member="Exercises" ThisKey="Id" OtherKey="ProtocolTemplateId" Type="Exercise" />
+      <Association Name="ProtocolTemplate_ProtocolTemplateDoctorXref" Member="ProtocolTemplateDoctorXrefs" ThisKey="Id" OtherKey="ProtocolTemplateId" Type="ProtocolTemplateDoctorXref" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProtocolTemplateDoctorXref" Member="ProtocolTemplateDoctorXrefs">
+    <Type Name="ProtocolTemplateDoctorXref">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DoctorId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProtocolTemplateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Counter" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="Person_ProtocolTemplateDoctorXref" Member="Person" ThisKey="DoctorId" OtherKey="Id" Type="Person" IsForeignKey="true" />
+      <Association Name="ProtocolTemplate_ProtocolTemplateDoctorXref" Member="ProtocolTemplate" ThisKey="ProtocolTemplateId" OtherKey="Id" Type="ProtocolTemplate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistrationStatus" Member="RegistrationStatus">
+    <Type Name="RegistrationStatus">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="RegistrationStatus_User" Member="Users" ThisKey="Id" OtherKey="RegistrationStatusId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tag" Member="Tags">
+    <Type Name="Tag">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExerciseTemplateId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="ExerciseTemplate_Tag" Member="ExerciseTemplate" ThisKey="ExerciseTemplateId" OtherKey="Id" Type="ExerciseTemplate" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
