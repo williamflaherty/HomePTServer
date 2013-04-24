@@ -33,24 +33,26 @@ namespace HomePTServer.Controllers
         
         [HttpPost]
         public string Login(PTLocalPatient patient) {
-            Dictionary<string, object> results = new Dictionary<string, object>();
-            PTLocalPatient p = PTDatabase.GetPatient(patient.email, patient.password);
-            if (p == null) {
-                results["error"] = "Invalid username or password";
-            } else {
-                results["patient"] = p;
-            }
-            return new JavaScriptSerializer().Serialize(results);
+            SyncArgs args = new SyncArgs();
+            args.authentication = new Auth();
+            args.authentication.email = patient.email;
+            args.authentication.password = patient.password;
+            args.lastTime = 0;
+            return Sync(args);
         }
 
         [HttpPost]
         public string CreatePatient(PTLocalPatient patient) {
             Dictionary<string, object> results = new Dictionary<string, object>();
-            PTLocalPatient p = PTDatabase.CreatePatient(patient);
-            if (p == null) {
-                results["error"] = "Error creating patient.";
-            } else {
-                results["patient"] = p;
+            try {
+                PTLocalPatient p = PTDatabase.CreatePatient(patient);
+                if (p == null) {
+                    results["error"] = "Error creating patient.";
+                } else {
+                    results["patient"] = p;
+                }
+            } catch (Exception e) {
+                results["error"] = e.Message;
             }
             return new JavaScriptSerializer().Serialize(results);
         }
@@ -64,30 +66,32 @@ namespace HomePTServer.Controllers
         [HttpPost]
         public string Sync(SyncArgs args) {
             Dictionary<string, object> results = new Dictionary<string, object>();
-            PTLocalPatient p = PTDatabase.GetPatient(args.authentication.email, args.authentication.password);
-            if (p == null) {
-                results["error"] = "Invalid username or password.";
-            } else {
-                List<PTProtocol> protocols = PTDatabase.GetProtocolsForPatient(p.ID);
-                results["patient"] = p;
-                results["protocols"] = protocols;
-                if (protocols.Count() > 0)
-                {
-                    results["messages"] = PTDatabase.GetMessages(protocols.First().ID, args.lastTime);
-                    Dictionary<string, string> images = new Dictionary<string, string>();
-                    foreach (PTMessage message in (List<PTMessage>)results["messages"])
-                    {
-                        if (!string.IsNullOrEmpty(message.imageName))
-                        {
-                            byte[] data = System.IO.File.ReadAllBytes(PTDatabase.PathForImageNamed(message.imageName));
-                            if (data != null)
-                            {
-                                images.Add(message.imageName, Convert.ToBase64String(data));
+            try {
+                PTLocalPatient p = PTDatabase.GetPatient(args.authentication.email, args.authentication.password);
+                if (p == null) {
+                    results["error"] = "Invalid username or password.";
+                } else {
+                    List<PTProtocol> protocols = PTDatabase.GetProtocolsForPatient(p.ID);
+                    results["patient"] = p;
+                    results["protocols"] = protocols;
+                    if (protocols.Count() > 0) {
+                        results["messages"] = PTDatabase.GetMessages(protocols.First().ID, args.lastTime);
+                        Dictionary<string, string> images = new Dictionary<string, string>();
+                        foreach (PTMessage message in (List<PTMessage>)results["messages"]) {
+                            if (!string.IsNullOrEmpty(message.imageName)) {
+                                try {
+                                    byte[] data = System.IO.File.ReadAllBytes(PTDatabase.PathForImageNamed(message.imageName, false));
+                                    images.Add(message.imageName, Convert.ToBase64String(data));
+                                } catch {
+
+                                }
                             }
                         }
+                        results["images"] = images;
                     }
-                    results["images"] = images;
                 }
+            } catch (Exception e) {
+                results["error"] = e.Message;
             }
             return new JavaScriptSerializer().Serialize(results);
         }
@@ -106,11 +110,19 @@ namespace HomePTServer.Controllers
             if (!String.IsNullOrEmpty(args.imageData)) {
                 imageData = Convert.FromBase64String(args.imageData);
             }
-            PTMessage message = PTDatabase.AddMessage(args.message, imageData);
-            if (message == null) {
-                results["error"] = "Error adding message to the database.";
-            } else {
-                results["message"] = message;
+            try {
+                PTMessage message = PTDatabase.AddMessage(args.message, imageData);
+                if (message != null && imageData != null) {
+                    string path = PTDatabase.PathForImageNamed(args.message.imageName, false);
+                    System.IO.File.WriteAllBytes(path, imageData);
+                }
+                if (message == null) {
+                    results["error"] = "Error adding message to the database.";
+                } else {
+                    results["message"] = message;
+                }
+            } catch (Exception e) {
+                results["error"] = e.Message;
             }
             return new JavaScriptSerializer().Serialize(results);
         }
@@ -124,11 +136,15 @@ namespace HomePTServer.Controllers
         [HttpPost]
         public string AddProgress(AddProgressArgs args) {
             Dictionary<string, object> results = new Dictionary<string, object>();
-            PTExerciseProgress progress = PTDatabase.AddProgress(args.progress);
-            if (progress == null) {
-                results["error"] = "Error adding message to the database.";
-            } else {
-                results["progress"] = progress;
+            try {
+                PTExerciseProgress progress = PTDatabase.AddProgress(args.progress);
+                if (progress == null) {
+                    results["error"] = "Error adding message to the database.";
+                } else {
+                    results["progress"] = progress;
+                }
+            } catch (Exception e) {
+                results["error"] = e.Message;
             }
             return new JavaScriptSerializer().Serialize(results);
         }

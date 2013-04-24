@@ -289,10 +289,13 @@ namespace HomePTServer.Models
             }
         }
 
-        public static string PathForImageNamed(string fileName)
+        public static string PathForImageNamed(string fileName, bool thumbSize)
         {
-            //TODO: is this relative to server or something on the app?
-            return "/images/directory/" + fileName;
+            if (thumbSize) {
+                return HttpContext.Current.Server.MapPath("~/PTImages/Thumbs/") + fileName;
+            } else {
+                return HttpContext.Current.Server.MapPath("~/PTImages/FullSize/") + fileName;;
+            }
         }
 
         public static PTMessage AddMessage(PTMessage message, byte[] imageData)
